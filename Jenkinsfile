@@ -22,6 +22,25 @@ pipeline {
         build job: 'deploy-artifacts-to-tomcat'
       }
     }
+ 
+    stage ('Deploy to Production') {
+      steps{
+        timeout(time:5, unit:'MINUTES'{
+          input message:'Approve PRODUCTION Deployment?'
+        }
+
+        build job: 'deploy-mavenproj-to-prod'
+      }
+      post{
+        success {
+          echo 'Code deployed to production.'
+        }
+
+        failure {
+          echo ' Deployment failed.'
+        }
+      }
+    }
 
 
 
