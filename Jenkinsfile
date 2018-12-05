@@ -3,7 +3,7 @@ pipeline {
   agent any
 
   stages {
-    stage('Init') {
+    stage('Maven clean all and build package') {
       steps {
         sh 'mvn clean package'
       }
