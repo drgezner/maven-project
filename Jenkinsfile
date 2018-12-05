@@ -49,6 +49,12 @@ pipeline {
 }
 
 
+/*
+  stages {
+    parallel {
+      stage ("parallel1"){
+        steps...
+*/
 
 /*
     stage('Build') {
