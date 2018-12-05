@@ -16,8 +16,21 @@ pipeline {
       }
     }
   } 
+    
+    stage ('Deploy to staging') {
+      steps {
+        build job: 'deploy-artifacts-to-tomcat'
+      }
+    }
+
+
+
+
 
 }
+
+
+
 /*
     stage('Build') {
       steps {
